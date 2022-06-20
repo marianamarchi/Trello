@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs'); %>
+<body>
+    <%- include('partials/navbar.ejs'); %>
+    <br>
+    <div class="container">
+        <div class="card" id="formulario-trello">
+            <div class="card-header">
+                <h3>Registrar API</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/registerAPI">
+                    <label>Nome:</label>
+                    <input type="text" placeholder="Nome API" class="form-control" name="name">
+                    <br>
+                    <label>APIKey:</label>
+                    <input type="text" placeholder="APIKey" class="form-control" name="APIKey"> 
+                    <br>
+                    <label>APIToken:</label>
+                    <input type="text" placeholder="APIToken" class="form-control" name="APIToken">
+                    <br>
+                    <label>ID Board:</label>
+                    <input type="text" placeholder="idBoard" class="form-control" name="idBoard">
+                    <br>
+                    <button class="btn btn-dark">Registrar</button>
+                </form>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+
+</body>
+<%- include('partials/footer.ejs'); %>

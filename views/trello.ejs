@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs'); %>
+<body>
+    <%- include('partials/navbar.ejs'); %>
+    <br>
+    <div class="container">
+        <div class="card" id="formulario-trello">
+            <div class="card-header">
+                <h3><%= apis.name %></h3> 
+                <br>APIKey: <%= apis.APIKey %>
+                <br>APIToken: <%= apis.APIToken %> 
+                <br>idBoard: <%= apis.idBoard %>
+            </div>
+            <div class="card-body">
+                <a href="/exportCard/<%= apis.APIKey %>/<%= apis.APIToken %>/<%= apis.idBoard %>" class="btn btn-dark">Card</a>
+                <a href="/exportList/<%= apis.APIKey %>/<%= apis.APIToken %>/<%= apis.idBoard %>" class="btn btn-dark">List</a>
+                <a href="/exportAction/<%= apis.APIKey %>/<%= apis.APIToken %>/<%= apis.idBoard %>" class="btn btn-dark">Action</a>
+                <a href="/exportMember/<%= apis.APIKey %>/<%= apis.APIToken %>/<%= apis.idBoard %>" class="btn btn-dark">Member</a>
+            </div>
+            <div class="card-footer">
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<%- include('partials/footer.ejs'); %>
+

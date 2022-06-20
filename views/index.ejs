@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs'); %>
+<body>
+    <%- include('partials/navbar.ejs'); %>
+    <br>
+    <div class="container">
+        <hr>
+        <h1>APIs</h1>
+        <hr>
+        <a href="/API" class="btn btn-dark">Registrar API</a>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>APIKey</th>
+                    <th>APIToken</th>
+                    <th>idBoard</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% apis.forEach(api => { %>
+                    <tr>
+                        <td><%= api.id %></td>
+                        <td><%= api.name %></td>
+                        <td><%= api.APIKey %></td>
+                        <td><%= api.APIToken %></td>
+                        <td><%= api.idBoard %></td>
+                        <td>
+                            <a href="/trello/<%= api.id %>" class="btn btn-success">Usar</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+<%- include('partials/footer.ejs'); %>
