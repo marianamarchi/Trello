@@ -20,6 +20,7 @@ const List = connection.define('list', {
     }
 });
 
+// COMENTAR LINHA ABAIXO APÓS PRIMEIRA EXECUÇÃO
 List.sync({force: false}).then (() => {});
 
 module.exports = List;

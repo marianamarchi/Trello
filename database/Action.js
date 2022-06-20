@@ -48,6 +48,7 @@ const Action = connection.define('action', {
     }
 });
 
+// COMENTAR LINHA ABAIXO APÓS PRIMEIRA EXECUÇÃO
 Action.sync({force: false}).then (() => {});
 
 module.exports = Action;

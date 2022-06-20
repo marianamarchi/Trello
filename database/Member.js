@@ -16,6 +16,7 @@ const Member = connection.define('member', {
     }
 });
 
+// COMENTAR LINHA ABAIXO APÓS PRIMEIRA EXECUÇÃO
 Member.sync({force: false}).then (() => {});
 
 module.exports = Member;

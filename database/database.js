@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('trello', 'root', 'Lokinha7!', {
+const connection = new Sequelize('DATABASE', 'USUARIO', 'SENHA', {
     host: 'localhost',
     dialect: 'mysql'
 });

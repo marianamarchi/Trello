@@ -32,6 +32,7 @@ const Card = connection.define('card', {
     }
 });
 
+// COMENTAR LINHA ABAIXO APÓS PRIMEIRA EXECUÇÃO
 Card.sync({force: false}).then (() => {});
 
 module.exports = Card;

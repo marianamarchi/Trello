@@ -126,13 +126,6 @@ app.get("/exportCard/:APIKey/:APIToken/:idBoard", (req, res) => {
             var dateLastActivity = jsonText[i].dateLastActivity;
             var json = jsonText[i];
 
-            /*
-            //console.log(Array.isArray(jsonText)); verifica se é um array
-            console.log('-');
-            console.log('ID: '   + id);
-            console.log('Desc: ' + name);
-            console.log('Json: ' + jsonText[i]);
-            */
             Card.create({ 
               json_id: id,
               name: name,
@@ -249,7 +242,6 @@ app.get("/exportAction/:APIKey/:APIToken/:idBoard", (req, res) => {
             })
             .then(text => {
                 const jsonText = JSON.parse(text);
-                console.log(jsonText);
 
                 console.log('Total Registros Actions: ' + jsonText.length);
 
@@ -267,13 +259,7 @@ app.get("/exportAction/:APIKey/:APIToken/:idBoard", (req, res) => {
                     var idMember = jsonText[i].memberCreator.id;
                     var json = jsonText[i];
 
-                    
-                    //console.log(Array.isArray(jsonText)); verifica se é um array
-                    //console.log('-');
-                    console.log('ID: '   + idCard);
-                    //console.log('Desc: ' + name);
-                    //console.log('Json: ' + jsonText[i]);
-                    
+                                       
                     Action.create({ 
                     json_id: id,
                     idMemberCreator: idMemberCreator,
@@ -321,7 +307,6 @@ app.get("/exportMember/:APIKey/:APIToken/:idBoard", (req, res) => {
     })
     .then(text => {
         const jsonText = JSON.parse(text);
-        //console.log(jsonText);
 
         console.log('Total Registros Members: ' + jsonText.length);
 
@@ -332,13 +317,6 @@ app.get("/exportMember/:APIKey/:APIToken/:idBoard", (req, res) => {
             var fullName = jsonText[i].fullName;
             var json = jsonText[i];
 
-            /*
-            //console.log(Array.isArray(jsonText)); verifica se é um array
-            console.log('-');
-            console.log('ID: '   + id);
-            console.log('Desc: ' + name);
-            console.log('Json: ' + jsonText[i]);
-            */
             Member.create({ 
               json_id: id,
               fullName: fullName,
@@ -354,86 +332,6 @@ app.get("/exportMember/:APIKey/:APIToken/:idBoard", (req, res) => {
     res.set('Content-Type', 'text/html');
     res.send(Buffer.from('<h2>Dados inseridos com sucesso</h2>'));
 });
-
-
-
-/*
-// parametros obrigatórios
-app.get("/ola/:nome/:empresa", function(req,res){
-    // REQ => dados enviados pelo usuário
-    // RES => dados enviados AO usuário
-    var nome = req.params.nome;
-    var empresa = req.params.empresa;
-
-    res.send("<h1>Oi  " +  nome + " do " + empresa + "</h1>")
-
-});
-
-/*
-// cria as rotas
-app.get("/", (req,res) =>{
-    Card.findAll({raw:true, order:[
-        ['id', 'name'] // indica por qual campo eu quero ordenar e se asc ou desc
-    ]}).then(cards =>{
-        //console.log(perguntas);
-        res.render("index", {
-            cards: cards
-        });
-    });
-});
-
-/*
-// criou uma rota para a pagina de registrar perguntas
-app.get("/perguntar", (req, res) => {
-    res.render("perguntar")
-});
-
-// deve usar o mesmo método do formulário ao enviar as perguntas
-app.post("/salvarpergunta", (req, res) => {
-    var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
-
-    Pergunta.create({ // insere no BD as variaveis registradas acima e no Form da pag HTML
-        titulo: titulo,
-        descricao: descricao
-    }).then(() => {
-        res.redirect("/"); // apos salvar no BD volta pra página principal
-    })
-});
-
-app.get("/pergunta/:id", (req,res) => {
-    var id = req.params.id;
-    Pergunta.findOne({
-        where: {id: id} // abre o where e informa qual valor eu quero buscar no banco comparando com uma variavel declarada
-    }).then(pergunta => {
-        if (pergunta != undefined) { // pergunta encontrada
-            Resposta.findAll({
-                where: {perguntaId: pergunta.id},
-                order: [['id', 'DESC']]
-            }).then(respostas => {
-                res.render("pergunta", {
-                    pergunta: pergunta,
-                    respostas: respostas
-                });
-            })
-        } else { // nao encontrada
-            res.redirect("/")
-        }
-    });
-});
-
-app.post("/responder", (req, res) => {
-    var corpo = req.body.corpo;
-    var perguntaId = req.body.pergunta;
-
-    Resposta.create({
-        corpo: corpo,
-        perguntaId: perguntaId
-    }).then(() => {
-        res.redirect("/pergunta/" + perguntaId);
-    })
-});
-*/
 
 app.listen(8080, () =>{
     console.log("App rodando");

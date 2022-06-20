@@ -20,6 +20,7 @@ const API = connection.define('api', {
     }
 });
 
+// COMENTAR LINHA ABAIXO APÓS PRIMEIRA EXECUÇÃO
 API.sync({force: false}).then (() => {});
 
 module.exports = API;
